@@ -30,4 +30,31 @@ program
         console.log("Credentials are removed.");
     })
 
+program
+    .command('*')
+    .arguments('<file>')
+    .action(function (file) {
+        const config = db.getConfig();
+        const cloudName = config.cloudName;
+        const preset = config.preset;
+        if (!(cloudName && preset)) {
+            console.log('Please set cloud name and preset with config command.');
+            return;
+        }
+        var formData = {
+            upload_preset: preset,
+            file: fs.createReadStream(file)
+        }
+        const url = "https://api.cloudinary.com/v1_1/" + cloudName + "/image/upload";
+        request.post({ url: url, formData: formData }, function optionalCallback(err, httpResponse, body) {
+            if (err) {
+                return console.error('upload failed:', err);
+            }
+            console.log('Upload successful!');
+            var data = JSON.parse(body);
+            console.log(data.url);
+            console.log(data.secure_url);
+        });
+    })
+
 program.parse(process.argv);
