@@ -23,4 +23,11 @@ program
         db.storeConfig(config);
     })
 
+program
+    .command('reset')
+    .action(function(command){
+        db.resetConfig();
+        console.log("Credentials are removed.");
+    })
+
 program.parse(process.argv);
