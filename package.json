@@ -1,9 +1,9 @@
 {
-  "name": "cloudinary-upload",
-  "version": "1.1.1",
+  "name": "cloudinary-push",
+  "version": "1.1.2",
   "description": "npm command line tool to upload images to cloudinary.",
   "bin": {
-    "cloudinary-upload": "./index.js"
+    "cloudinary-push": "./index.js"
   },
   "author": "Ashish Prajapati",
   "license": "MIT",
