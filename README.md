@@ -1,4 +1,4 @@
-## coudinary-push
+## cloudinary-push
 
 Cloudinary command line tool to upload images to cloudinary cdn from terminal. Currently only image upload is supported, feel free to contibute.
 
